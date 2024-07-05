@@ -23,7 +23,8 @@ type ModalProps = {
   text: string;
 };
 
-const Popup = ({ open, onClose, title, text }: ModalProps) => {
+const Popup = (props: ModalProps) => {
+  const { open, onClose, title, text } = props;
   return (
     <Modal
       keepMounted

@@ -1,8 +1,7 @@
-import { screen } from "@testing-library/dom";
+import { fireEvent, screen } from "@testing-library/dom";
 import { PlayerNameInput } from ".";
 import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 
 describe("<PlayerNameInput />", () => {
   const mockHandler = jest.fn();
@@ -15,34 +14,25 @@ describe("<PlayerNameInput />", () => {
         handleChange={mockHandler}
       />
     );
-    // ACT
     // ASSERT
     expect(screen.getByText("test name")).toBeInTheDocument(); // Ensure at least one title is present
   });
 
-  it("passes an updated name to parent component", async () => {
+  it("triggers the name change handler on input", () => {
+    const mockHandler = jest.fn();
     // ARRANGE
     render(
       <PlayerNameInput
-        label="Craig"
-        name={"Test Value"}
+        label={"test name"}
+        name={""}
         handleChange={mockHandler}
       />
     );
-    // ACT
 
-    console.log("ELEMENT ->>>");
+    const input = screen.getByLabelText("test name");
 
-    console.log(screen.getByTestId("player-name-input"));
-    userEvent.type(screen.getByLabelText("Craig"), "Tom");
-    //expect(screen.getByLabelText("Craig")).toHaveValue("Tom");
+    fireEvent.change(input, { target: { value: "Craig" } });
 
-    // const input = await screen.findByLabelText("Craig");
-    // await userEvent.type(input, "Tom");
-
-    //expect(input).toHaveValue("Tom");
-    //expect(mockHandler).toHaveBeenCalled();
-    //   expect.objectContaining({ value: "New Value" })
-    // );
+    expect(mockHandler).toHaveBeenCalled();
   });
 });

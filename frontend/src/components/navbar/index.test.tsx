@@ -12,17 +12,9 @@ describe("<NavBar />", () => {
         <Navbar />
       </Router>
     );
-
     // ACT
     const headingText = screen.getAllByText("RetroGameZone");
-
     // ASSERT
     expect(headingText.length).toBeGreaterThanOrEqual(1); // Ensure at least one title is present
   });
 });
-
-// it("triggers navigation function on  game link on click", async () => {
-
-// it("opens the menu and navigates on mobile", async () => {
-
-// });

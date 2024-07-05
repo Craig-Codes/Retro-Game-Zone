@@ -202,7 +202,9 @@ const NoughtsAndCrossesGame = ({
         {drawGame && <div id="winner-true">Draw game!</div>}
       </Box>
       <Box className="content-container">
-        <div id="game-board">{renderGameBoard}</div>
+        <div id="game-board" data-testid="game-board">
+          {renderGameBoard}
+        </div>
       </Box>
       <Box className="content-container" id="celebration">
         <Button variant="contained" onClick={handleReset}>

@@ -229,7 +229,9 @@ const ConnectFourGame = ({ inputPlayerNames }: ConnectFourGameProps) => {
         {drawGame && <div id="winner-true-connect4">Draw game!</div>}
       </Box>
       <Box className="content-container">
-        <div id="connect-game-board">{renderGameBoard}</div>
+        <div id="connect-game-board" data-testid="game-board">
+          {renderGameBoard}
+        </div>
       </Box>
       <Box className="content-container" id="celebration">
         <Button variant="contained" onClick={handleReset}>
