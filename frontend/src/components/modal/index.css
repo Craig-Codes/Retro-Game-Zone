@@ -1,0 +1,17 @@
+@media (max-width: 1400px) {
+  #modal-content {
+    width: 400px;
+  }
+}
+
+@media (max-width: 899px) {
+  #modal-content {
+    width: 350px;
+  }
+}
+
+@media (max-width: 500px) {
+  #modal-content {
+    width: 300px;
+  }
+}
